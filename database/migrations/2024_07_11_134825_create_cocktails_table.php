@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('ingredients');
             $table->string('method');
             $table->string('glass_type');
+
             $table->timestamps();
         });
     }
