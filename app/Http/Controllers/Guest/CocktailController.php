@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cocktail;
 use Illuminate\Http\Request;
-
-//todo va aggiunto: use App\odels\Cocktail;
 
 class CocktailController extends Controller
 {
-    public function trains() {
+    public function cocktail() {
 
         $cocktails = Cocktail::all();
 
