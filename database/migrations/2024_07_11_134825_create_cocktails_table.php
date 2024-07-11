@@ -8,19 +8,26 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('cocktails', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('ingredients');
+            $table->string('method');
+            $table->string('glass_type');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('cocktails');
     }
