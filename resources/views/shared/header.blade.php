@@ -7,7 +7,7 @@
             <a class="nav-link text-light fs-5" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light fs-5" href="/cocktail">Cocktails</a>
+            <a class="nav-link text-light fs-5" href="/cocktails">Cocktails</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light fs-5" href="/other">Other</a>
