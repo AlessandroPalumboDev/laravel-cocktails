@@ -46,7 +46,7 @@
         <label for="img">Image</label>
         <input type="text" class="form-control" id="img" name="img" value="{{ old('img') }}" required>
       </div>
-      <button type="submit" class="btn btn-primary mb-5">Create Cocktail</button>
+      <button type="submit" class="btn btn-outline-primary mb-5">Create Cocktail</button>
     </form>
   </div>
 @endsection
