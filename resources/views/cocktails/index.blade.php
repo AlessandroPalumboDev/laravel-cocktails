@@ -14,6 +14,15 @@
               <p><strong>Method:</strong> {{ $cocktail->method }}</p>
               <p><strong>Glass Type:</strong> {{ $cocktail->glass_type }}</p>
               <p><strong>Price:</strong> {{ $cocktail->price }}$</p>
+              <a
+                href="{{ route('cocktails.show', $cocktail) }}"
+                class="btn btn-outline-secondary btn-sm">
+                <i class="fas fa-binoculars"></i>
+              </a>
+              <a href="{{ route('cocktails.edit', $cocktail) }}" class="btn btn-outline-warning btn-sm">
+                <i class="far fa-pen-to-square"></i>
+              </a>
+
             </div>
           </div>
         </div>

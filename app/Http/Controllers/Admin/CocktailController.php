@@ -40,7 +40,8 @@ class CocktailController extends Controller
      */
     public function show(Cocktail $cocktail)
     {
-        //
+        // $cocktail = Cocktail::all();
+        return view('cocktails.show', compact('cocktail'));
     }
 
     /**
