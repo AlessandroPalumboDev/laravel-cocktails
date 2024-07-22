@@ -24,7 +24,7 @@ class CocktailController extends Controller
      */
     public function create()
     {
-        //
+        return view('cocktails.create');
     }
 
     /**
@@ -32,7 +32,20 @@ class CocktailController extends Controller
      */
     public function store(StoreCocktailRequest $request)
     {
-        //
+
+        // Create a new cocktail
+        $cocktail = new Cocktail;
+        $cocktail->name = $request->input('name');
+        $cocktail->description = $request->input('description');
+        $cocktail->ingredients = $request->input('ingredients');
+        $cocktail->method = $request->input('method');
+        $cocktail->glass_type = $request->input('glass_type');
+        $cocktail->price = $request->input('price');
+        $cocktail->img = $request->input('img');
+
+        $cocktail->save();
+
+        return redirect()->route('cocktails.index')->with('success', 'Cocktail created successfully.');
     }
 
     /**
