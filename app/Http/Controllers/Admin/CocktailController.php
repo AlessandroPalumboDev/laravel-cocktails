@@ -62,15 +62,20 @@ class CocktailController extends Controller
      */
     public function edit(Cocktail $cocktail)
     {
-        //
+        return view('cocktails.edit', compact('cocktail'));
     }
+    
 
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateCocktailRequest $request, Cocktail $cocktail)
     {
-        //
+        $data = $request->validated();
+  
+        $cocktail->update($data); 
+
+        return redirect()->route('cocktails.show', $cocktail);
     }
 
     /**
