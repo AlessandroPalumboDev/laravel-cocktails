@@ -10,7 +10,7 @@
             @method('PUT')
 
             <div class="mb-3">
-              <label for="img" class="form-label">Imagine</label>
+              <label for="img" class="form-label">Immagine</label>
               <input type="text" class="form-control" id="img" name="img" value="{{ old('img', $cocktail->img)}}">
             </div>
             <div class="mb-3">
@@ -38,7 +38,7 @@
               <input type="number" class="form-control" id="price" name="price" value="{{ old('price', $cocktail->price)}}">
             </div>
             
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
           </form>
     
     </div>
@@ -48,15 +48,3 @@
     
 @endsection
 
-{{-- 
-
-            $cocktail->img = 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/06/negroni/_jcr_content/header-par/image-single.img.jpg/1560847989682.jpg';
-            $cocktail->name = $faker->firstName();
-            $cocktail->description = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et architecto consequatur cum aliquam, ipsam accusantium.';
-            $cocktail->method = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et architecto consequatur cum aliquam, ipsam accusantium.';
-            $cocktail->glass_type = 'Wine Glass';
-            $cocktail->ingredients = 'Campari, Vermouth, Ghiaccio, Gin, Arance';
-            $cocktail->price = $faker->randomNumber(2, true);
-
-
---}}
