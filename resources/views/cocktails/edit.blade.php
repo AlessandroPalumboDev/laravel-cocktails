@@ -6,7 +6,7 @@
 
     <a href="{{ route("cocktails.index") }}" class=" mb-3 btn btn-outline-primary">
       <i class="fas fa-arrow-left"></i>
-      Torna alla lista Progetti
+      Torna alla lista dei Cocktails
     </a>
     
     <div class="cocktail-edit">
