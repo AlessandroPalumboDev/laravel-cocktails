@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Cocktail;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
