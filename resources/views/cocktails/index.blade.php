@@ -18,7 +18,8 @@
                                 style="display:inline;" onsubmit="return confirmDelete()">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Are you sure you want to delete this cocktail?')">Delete</button>
                             </form>
                         </div>
                     </div>
@@ -26,9 +27,4 @@
             @endforeach
         </div>
     </div>
-    <script>
-        function confirmDelete() {
-            return confirm('Are you sure you want to delete this cocktail?');
-        }
-    </script>
 @endsection
