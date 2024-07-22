@@ -14,7 +14,7 @@ class CocktailController extends Controller
      */
     public function index()
     {
-        $cocktails = Cocktail::all();
+        $cocktails = Cocktail::paginate(6);
 
         return view('cocktails.index', compact('cocktails'));
     }
@@ -64,7 +64,7 @@ class CocktailController extends Controller
     {
         return view('cocktails.edit', compact('cocktail'));
     }
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -72,8 +72,8 @@ class CocktailController extends Controller
     public function update(UpdateCocktailRequest $request, Cocktail $cocktail)
     {
         $data = $request->validated();
-  
-        $cocktail->update($data); 
+
+        $cocktail->update($data);
 
         return redirect()->route('cocktails.show', $cocktail);
     }
