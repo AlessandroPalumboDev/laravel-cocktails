@@ -10,7 +10,7 @@
             <a class="nav-link text-light fs-5" href="/cocktails">Cocktails</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light fs-5" href="/cocktails/create">Add New</a>
+            <a class="nav-link text-light fs-5" href="/cocktails/ingredients">Ingredients</a>
           </li>
         </ul>
         <span class="navbar-text text-light fs-5">
