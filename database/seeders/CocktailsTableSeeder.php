@@ -20,7 +20,6 @@ class CocktailsTableSeeder extends Seeder
             $cocktail->name = $faker->firstName();
             $cocktail->description = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et architecto consequatur cum aliquam, ipsam accusantium.';
             $cocktail->method = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et architecto consequatur cum aliquam, ipsam accusantium.';
-            $cocktail->glass_type = 'Wine Glass';
             $cocktail->ingredients = 'Campari, Vermouth, Ghiaccio, Gin, Arance';
             $cocktail->price = $faker->randomNumber(2, true);
 

@@ -18,4 +18,9 @@ class Cocktail extends Model
         'ingredients',
         'price',
     ];
+
+    public function glasses()
+    {
+        return $this->belongsToMany(Glass::class);
+    }
 }
