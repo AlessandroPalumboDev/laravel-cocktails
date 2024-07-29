@@ -21,13 +21,19 @@
 
               <img class="w-100 mb-3" src="{{ $cocktail->img }}" alt="{{ $cocktail->img }}">
 
-              <p class="card-text"><strong>Description:</strong>{{ $cocktail->description }}</p>
+              <p class="card-text"><strong>Description:</strong> {{ $cocktail->description }}</p>
 
               <p><strong>Ingredients:</strong> {{ $cocktail->ingredients }}</p>
 
               <p><strong>Method:</strong> {{ $cocktail->method }}</p>
 
-              <p><strong>Glass Type:</strong> {{ $cocktail->glass_type }}</p>
+              <p><strong>Glass Type:</strong>
+                @foreach ($cocktail->glasses as $glass)
+                  {{ $glass->name }}@if (!$loop->last)
+                    ,
+                  @endif
+                @endforeach
+              </p>
 
               <p><strong>Price:</strong> {{ $cocktail->price }}$</p>
 
@@ -53,9 +59,4 @@
           </div>
         </div>
       @endforeach
-      {{-- </div>
-    <div class="d-flex justify-content-center mt-4">
-      {{ $cocktails->links() }}
-    </div>
-  </div> --}}
     @endsection

@@ -22,7 +22,12 @@ class StoreCocktailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'ingredients' => 'required|string',
+            'method' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'img' => 'required|url',
         ];
     }
 }

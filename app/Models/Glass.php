@@ -14,6 +14,6 @@ class Glass extends Model
 
     public function cocktails()
     {
-        return $this->belongsToMany(Cocktail::class);
+        return $this->belongsToMany(Cocktail::class, 'cocktail_glass');
     }
 }

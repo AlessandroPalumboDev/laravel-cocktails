@@ -32,11 +32,7 @@
         <label for="method">Method</label>
         <textarea class="form-control" id="method" name="method" rows="3" required>{{ old('method') }}</textarea>
       </div>
-      <div class="form-group mb-3">
-        <label for="glass_type">Glass Type</label>
-        <input type="text" class="form-control" id="glass_type" name="glass_type" value="{{ old('glass_type') }}"
-          required>
-      </div>
+
       <div class="form-group mb-3">
         <label for="price">Price ($)</label>
         <input type="number" step="0.01" class="form-control" id="price" name="price"
@@ -45,6 +41,19 @@
       <div class="form-group mb-3">
         <label for="img">Image</label>
         <input type="text" class="form-control" id="img" name="img" value="{{ old('img') }}" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Select Glass Type</label>
+        @foreach ($glasses as $glass)
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="glass_id" id="glass{{ $glass->id }}"
+              value="{{ $glass->id }}" required>
+            <label class="form-check-label" for="glass{{ $glass->id }}">
+              {{ $glass->name }}
+            </label>
+          </div>
+        @endforeach
       </div>
       <button type="submit" class="btn btn-outline-primary mb-5">Create Cocktail</button>
     </form>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cocktail;
 use App\Http\Requests\StoreCocktailRequest;
 use App\Http\Requests\UpdateCocktailRequest;
+use App\Models\Glass;
 
 class CocktailController extends Controller
 {
@@ -14,8 +15,7 @@ class CocktailController extends Controller
      */
     public function index()
     {
-        $cocktails = Cocktail::all();
-
+        $cocktails = Cocktail::with('glasses')->get();
         return view('cocktails.index', compact('cocktails'));
     }
 
@@ -24,7 +24,8 @@ class CocktailController extends Controller
      */
     public function create()
     {
-        return view('cocktails.create');
+        $glasses = Glass::all();
+        return view('cocktails.create', compact('glasses'));
     }
 
     /**
@@ -33,17 +34,12 @@ class CocktailController extends Controller
     public function store(StoreCocktailRequest $request)
     {
 
-        // Create a new cocktail
-        $cocktail = new Cocktail;
-        $cocktail->name = $request->input('name');
-        $cocktail->description = $request->input('description');
-        $cocktail->ingredients = $request->input('ingredients');
-        $cocktail->method = $request->input('method');
-        $cocktail->glass_type = $request->input('glass_type');
-        $cocktail->price = $request->input('price');
-        $cocktail->img = $request->input('img');
+        $data = $request->validated();
+        $cocktail = Cocktail::create($data);
 
-        $cocktail->save();
+        if ($request->has('glass_id')) {
+            $cocktail->glasses()->sync([$request->input('glass_id')]);
+        }
 
         return redirect()->route('cocktails.index')->with('success', 'Cocktail created successfully.');
     }
