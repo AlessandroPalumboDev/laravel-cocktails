@@ -21,5 +21,3 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 // Route::get('/cocktails', [CocktailController::class, 'index'])->name('index');
 
 Route::resource('cocktails', CocktailController::class);
-
-Route::resource('ingredients', IngredientController::class);
