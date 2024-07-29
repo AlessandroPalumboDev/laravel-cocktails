@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cocktail;
 use App\Http\Requests\StoreCocktailRequest;
 use App\Http\Requests\UpdateCocktailRequest;
+use App\Models\Glass;
 
 class CocktailController extends Controller
 {
@@ -62,7 +63,9 @@ class CocktailController extends Controller
      */
     public function edit(Cocktail $cocktail)
     {
-        return view('cocktails.edit', compact('cocktail'));
+        $glasses = Glass::all();
+
+        return view('cocktails.edit', compact('cocktail', 'glasses'));
     }
 
 
@@ -73,7 +76,16 @@ class CocktailController extends Controller
     {
         $data = $request->validated();
 
-        $cocktail->update($data);
+        $cocktail->update($data);   
+
+        // $cocktail->glass_type = $data['glass_type'];
+
+
+        if ($request->has('glasses')) {
+       
+            
+            $cocktail->glasses()->sync($data['glasses']);
+        }
 
         return redirect()->route('cocktails.show', $cocktail);
     }

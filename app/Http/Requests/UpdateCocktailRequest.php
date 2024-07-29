@@ -22,7 +22,9 @@ class UpdateCocktailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+           
+            'glasses' => 'nullable|array',
+            'glasses.*' => 'exists:glasses,id',
         ];
     }
 }

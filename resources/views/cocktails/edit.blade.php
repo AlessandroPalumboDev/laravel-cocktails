@@ -30,10 +30,24 @@
               <label for="method" class="form-label">Metodo</label>
               <input type="text" class="form-control" id="method" name="method" value="{{ old('method', $cocktail->method)}}">
             </div>
+
             <div class="mb-3">
               <label for="glass_type" class="form-label">Tipo di bicchiere</label>
               <input type="text" class="form-control" id="glass_type" name="glass_type" value="{{ old('glass_type', $cocktail->glass_type)}}">
             </div>
+
+            <fieldset class="my-4">
+              <legend>Tipo di bicchiere</legend>
+              @foreach ($glasses as $glass)
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="glasses" value="{{$glass->id}}" id="glass-{{$glass->id}}"
+                {{ old('glasses', $cocktail->glasses)}}>
+                <label for="glass-{{$glass->id}}">{{$glass->name}}</label>
+              </div>
+                
+              @endforeach
+            </fieldset>
+
             <div class="mb-3">
               <label for="ingredients" class="form-label">Ingredienti</label>
               <input type="text" class="form-control" id="ingredients" name="ingredients" value="{{ old('ingredients', $cocktail->ingredients)}}">
