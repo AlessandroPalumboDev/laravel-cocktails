@@ -1,11 +1,14 @@
 @extends('layouts.app')
 @section('main')
   <div class="container mt-5">
-    <h1 class="mb-3">All Cocktails</h1>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="mb-3">All Cocktails</h1>
+      <a href="{{ route('cocktails.create') }}" class="btn btn-primary">Create New Cocktail</a>
+    </div>
+
     <div class="row">
 
       @foreach ($cocktails as $cocktail)
-
         <div class="col-md-4 mb-4">
 
           <div class="card">
@@ -17,7 +20,7 @@
             <div class="card-body">
 
               <img class="w-100 mb-3" src="{{ $cocktail->img }}" alt="{{ $cocktail->img }}">
-              
+
               <p class="card-text"><strong>Description:</strong>{{ $cocktail->description }}</p>
 
               <p><strong>Ingredients:</strong> {{ $cocktail->ingredients }}</p>
@@ -50,9 +53,9 @@
           </div>
         </div>
       @endforeach
-    {{-- </div>
+      {{-- </div>
     <div class="d-flex justify-content-center mt-4">
       {{ $cocktails->links() }}
     </div>
   </div> --}}
-@endsection
+    @endsection
