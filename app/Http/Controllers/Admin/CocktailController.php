@@ -14,7 +14,7 @@ class CocktailController extends Controller
      */
     public function index()
     {
-        $cocktails = Cocktail::paginate(6);
+        $cocktails = Cocktail::all();
 
         return view('cocktails.index', compact('cocktails'));
     }
