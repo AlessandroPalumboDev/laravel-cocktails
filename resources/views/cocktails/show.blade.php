@@ -24,9 +24,15 @@
                         <p>
                             <strong>Method:</strong> {{ $cocktail->method }}
                         </p>
+                        @forelse ($cocktail->glasses as $glass)
                         <p>
-                            <strong>Glass Type:</strong> {{ $cocktail->glass_type }}
-                        </p>
+                            <strong>Glass Type:</strong> {{ $glass->name }}
+                        </p>                       
+                        @empty
+                        <p>
+                            <strong>Glass Type:</strong> Nessun bicchiere selezionato
+                        </p>                           
+                        @endforelse
                         <p>
                             <strong>Price:</strong> {{ $cocktail->price }}$
                         </p>

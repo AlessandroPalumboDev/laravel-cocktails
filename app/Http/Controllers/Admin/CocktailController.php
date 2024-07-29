@@ -73,16 +73,11 @@ class CocktailController extends Controller
 
         $cocktail->update($data);   
 
-        // $cocktail->glass_type = $data['glass_type'];
-
-
-        if ($request->has('glasses')) {
-       
-            
-            $cocktail->glasses()->sync($data['glasses']);
+        if ($request->has('glass_id')) {
+            $cocktail->glasses()->sync($data['glass_id']);
         }
 
-        return redirect()->route('cocktails.show', $cocktail);
+        return redirect()->route('cocktails.show', $cocktail->id);
     }
 
     /**

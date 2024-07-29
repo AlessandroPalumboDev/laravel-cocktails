@@ -40,13 +40,18 @@
               <legend>Tipo di bicchiere</legend>
               @foreach ($glasses as $glass)
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="glasses" value="{{$glass->id}}" id="glass-{{$glass->id}}"
-                {{ old('glasses', $cocktail->glasses)}}>
-                <label for="glass-{{$glass->id}}">{{$glass->name}}</label>
+                @if ($errors->any())
+                <input class="form-check-input" type="radio" name="glass_id" value="{{ $glass->id }}" id="glass-{{ $glass->id }}"
+                {{in_array($glass->id, old('glasses', $cocktail->glasses)) ? 'checked' : ''}}>
+                <label for="glass-{{ $glass->id }}">{{ $glass->name }}</label>
+                @else
+                <input class="form-check-input" type="radio" name="glass_id" value="{{ $glass->id }}" id="glass-{{ $glass->id }}"
+                {{$cocktail->glasses->contains($glass) ? 'checked' : ''}}>
+                <label for="glass-{{ $glass->id }}">{{ $glass->name }}</label>                  
+                @endif
               </div>
-                
               @endforeach
-            </fieldset>
+          </fieldset>
 
             <div class="mb-3">
               <label for="ingredients" class="form-label">Ingredienti</label>
