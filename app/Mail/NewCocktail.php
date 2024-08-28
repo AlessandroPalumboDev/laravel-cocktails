@@ -29,7 +29,6 @@ class NewCocktail extends Mailable
     {
         return new Envelope(
             subject: 'New Cocktail Created',
-            replyTo: $this->cocktail
         );
     }
 
@@ -39,7 +38,7 @@ class NewCocktail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'cocktails.create',
+            view: 'mail.cocktail',
             with: ['cocktail' => $this->cocktail],
         );
     }

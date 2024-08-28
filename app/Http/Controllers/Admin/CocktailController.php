@@ -7,6 +7,8 @@ use App\Models\Cocktail;
 use App\Http\Requests\StoreCocktailRequest;
 use App\Http\Requests\UpdateCocktailRequest;
 use App\Models\Glass;
+use App\Mail\NewCocktail;
+use Illuminate\Support\Facades\Mail;
 
 class CocktailController extends Controller
 {
@@ -41,6 +43,8 @@ class CocktailController extends Controller
             $cocktail->glasses()->sync([$request->input('glass_id')]);
         }
 
+        Mail::to('hello@example.com')->send(new NewCocktail($cocktail));
+
         return redirect()->route('cocktails.index')->with('success', 'Cocktail created successfully.');
     }
 
@@ -71,7 +75,7 @@ class CocktailController extends Controller
     {
         $data = $request->validated();
 
-        $cocktail->update($data);   
+        $cocktail->update($data);
 
         if ($request->has('glass_id')) {
             $cocktail->glasses()->sync($data['glass_id']);
